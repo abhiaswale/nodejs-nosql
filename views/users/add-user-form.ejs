@@ -1,0 +1,17 @@
+ <%- include('../includes/head.ejs') %>
+
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+    <main>
+        <form action='/<% if (editing) { %>update-user<% } else { %>add-user<% } %>' method='POST'>
+            <input placeholder='enter name' type='text' name='name' value="<% if (editing) { %><%=user.username %><% } %>">
+            <input placeholder='enter Email' type='text' name='emailId' value="<% if (editing) { %><%= user.emailId%><% } %>" >
+            <% if (editing) { %>
+                <input type="hidden" value="<%=user._id %>" name="userId">
+            <% } %>
+            <button type='submit'><% if (editing) { %>Update User <% } else { %>Add User<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

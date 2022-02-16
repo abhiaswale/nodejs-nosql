@@ -1,0 +1,19 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main >
+            <h1>Details</h1>
+            <hr>
+            <h2><%= user.username %></h2>
+            <p><%= user.emailId %></p>
+            
+            <form  action="/delete-user" method="POST">
+                <input type="hidden" value ="<%=user._id %>" name="userId">
+                <button type="submit">Delete user</button>
+            </form>
+        </main>
+        <%- include('../includes/end.ejs') %>
+                                                
+
